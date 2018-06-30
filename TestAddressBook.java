@@ -85,7 +85,7 @@ TestAddressBook extends Activity
 
     @Override
     public void onCreate(Bundle savedInstanceState)
-    { System.out.println("here");
+    { //System.out.println("here");
         i++;
         goon=false;
         super.onCreate(savedInstanceState);
@@ -101,33 +101,16 @@ TestAddressBook extends Activity
         if(permissionCheck== PackageManager.PERMISSION_DENIED){
 
 
-
                     ActivityCompat.requestPermissions(this,
                             new String[]{Manifest.permission.READ_CONTACTS},
                             MY_PERMISSIONS_REQUEST_READ_CONTACTS);
 
-                    if(goon){
-                        Map<String, String> phone_address = ContactUtil.getAddressBook(this);
 
-                        @SuppressWarnings("rawtypes")
-                        Iterator ite = phone_address.keySet().iterator();
-                        while(ite.hasNext())
-                        {
-                            String phone = ite.next().toString();
-                            String name = phone_address.get(phone).toString();
-                            m_orders.add(new Person(name, phone));
-                        }
+            //permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS);
 
-                        PersonAdapter m_adapter = new PersonAdapter(this, R.layout.view_friend_list, m_orders);
-                        lv.setAdapter(m_adapter);
-                        lv.setOnItemClickListener(new AdapterView.OnItemClickListener()
-                        {
-                            public void onItemClick(AdapterView<?> parent, View view, int position, long rowID)
-                            {
-                                doSelectFriend((Person)parent.getItemAtPosition(position));
-                            }});
+                //onCreate(savedInstanceState);
 
-                    }
+
 
 
                 } else {
@@ -164,8 +147,30 @@ TestAddressBook extends Activity
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
-        if(requestCode==MY_PERMISSIONS_REQUEST_READ_CONTACTS){
-            goon=true;
+        if(requestCode==MY_PERMISSIONS_REQUEST_READ_CONTACTS&&grantResults[0]==PackageManager.PERMISSION_GRANTED){
+            lv = (ListView)findViewById(R.id.list);
+            ArrayList<Person> m_orders = new ArrayList<Person>();
+            Map<String, String> phone_address = ContactUtil.getAddressBook(this);
+
+            @SuppressWarnings("rawtypes")
+            Iterator ite = phone_address.keySet().iterator();
+            while(ite.hasNext())
+            {
+                String phone = ite.next().toString();
+                String name = phone_address.get(phone).toString();
+                m_orders.add(new Person(name, phone));
+            }
+
+            PersonAdapter m_adapter = new PersonAdapter(this, R.layout.view_friend_list, m_orders);
+            lv.setAdapter(m_adapter);
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener()
+            {
+                public void onItemClick(AdapterView<?> parent, View view, int position, long rowID)
+                {
+                    doSelectFriend((Person)parent.getItemAtPosition(position));
+                }});
+            //goon=true;
+            //onCreate(savedInstanceState);
             Toast.makeText(this,"주소록 접근이 승인되었습니다.",Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(this,"주소록 접근이 거절되었습니다. 추가 승인이 필요합니다.",Toast.LENGTH_SHORT).show();
