@@ -32,10 +32,6 @@ TestAddressBook extends Activity
     private int i = 0;
     private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS=10;
 
-
-
-
-
 // Here, thisActivity is the current activity
 
 /*
