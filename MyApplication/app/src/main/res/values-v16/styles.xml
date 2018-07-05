@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#40af44</item>
+        <item name="colorPrimaryDark">#1e5320</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/CustomTextView</item>
+        <item name="android:actionBarStyle">@style/CustomActionBar</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="CustomTextView" parent="@android:style/Widget.DeviceDefault.TextView">
+        <item name="android:fontFamily">@font/nanumbarungothic</item>
+    </style>
+
+    <style name="CustomActionBar" parent="@android:style/Widget.DeviceDefault.ActionBar">
+        <item name="android:fontFamily">@font/nanumbarungothic</item>
+    </style>
+
+    <style name="MyButton" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">#6fea8e</item>
+        <item name="colorButtonNormal">#136927</item>
+
+    </style>
+    <style name="MyButton2" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">#abffc3</item>
+        <item name="colorButtonNormal">#2a9e4d</item>
+
+    </style>
+    <style name="MyButton3" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">#228f3c</item>
+        <item name="colorButtonNormal">#61c77b</item>
+
+    </style>
+
+
+</resources>

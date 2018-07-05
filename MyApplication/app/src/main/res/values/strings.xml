@@ -6,5 +6,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu1">통화내역</string>
     <string name="menu2">주소록</string>
+    <string name="confirm">주소록으로 돌아가기</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
