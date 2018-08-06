@@ -1,6 +1,6 @@
-##조하영, 조민지
-
-##android studio
+### week1
+## 조하영, 조민지
+## android studio
 
 저세상 디자인을 가진 굉장히 끔찍한 세번째 탭 포함
 
